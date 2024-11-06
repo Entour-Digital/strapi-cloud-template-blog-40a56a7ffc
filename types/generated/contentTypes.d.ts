@@ -485,72 +485,6 @@ export interface PluginUsersPermissionsUser
   };
 }
 
-export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
-  collectionName: 'articles';
-  info: {
-    singularName: 'article';
-    pluralName: 'articles';
-    displayName: 'Article';
-    description: 'Create your blog content';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 80;
-      }>;
-    slug: Schema.Attribute.UID<'title'>;
-    cover: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
-    blocks: Schema.Attribute.DynamicZone<
-      ['shared.media', 'shared.quote', 'shared.rich-text']
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::article.article'
-    >;
-  };
-}
-
-export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
-  collectionName: 'authors';
-  info: {
-    singularName: 'author';
-    pluralName: 'authors';
-    displayName: 'Author';
-    description: 'Create authors for your content';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    name: Schema.Attribute.String;
-    avatar: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-    email: Schema.Attribute.String;
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::author.author'>;
-  };
-}
-
 export interface ApiBlogPageBlogPage extends Struct.SingleTypeSchema {
   collectionName: 'blog_pages';
   info: {
@@ -1093,8 +1027,6 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::article.article': ApiArticleArticle;
-      'api::author.author': ApiAuthorAuthor;
       'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
       'api::contact-page.contact-page': ApiContactPageContactPage;
