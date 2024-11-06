@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_callouts",
+  "info": {
+    "displayName": "Callout",
+    "icon": "quote"
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "string"
+    },
+    "LeftAlign": {
+      "type": "boolean"
+    }
+  }
+}

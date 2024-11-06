@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_service_listings",
+  "info": {
+    "displayName": "serviceListing",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "serviceImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "serviceText": {
+      "type": "string"
+    },
+    "serviceDescription": {
+      "type": "text"
+    }
+  }
+}

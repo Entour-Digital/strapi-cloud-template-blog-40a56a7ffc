@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_shared_hero_banners",
+  "info": {
+    "displayName": "HeroBanner",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "BackgroundImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "CtaLabel": {
+      "type": "string"
+    },
+    "Heading": {
+      "type": "string"
+    },
+    "SubHeading": {
+      "type": "string"
+    },
+    "CtaLink": {
+      "type": "string"
+    }
+  }
+}

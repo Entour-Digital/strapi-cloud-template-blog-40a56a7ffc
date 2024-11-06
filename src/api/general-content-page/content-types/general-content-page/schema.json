@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "general_content_pages",
+  "info": {
+    "singularName": "general-content-page",
+    "pluralName": "general-content-pages",
+    "displayName": "General Content Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Slug": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "Hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.hero-banner"
+    },
+    "Content": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.richtext",
+        "shared.callout",
+        "shared.50-50-image-richtext"
+      ]
+    }
+  }
+}

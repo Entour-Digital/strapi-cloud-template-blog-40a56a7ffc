@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_richtexts",
+  "info": {
+    "displayName": "Richtext",
+    "icon": "bold"
+  },
+  "options": {},
+  "attributes": {
+    "Richtext": {
+      "type": "blocks"
+    }
+  }
+}

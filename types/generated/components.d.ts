@@ -1,29 +1,28 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
+export interface SharedServiceListing extends Struct.ComponentSchema {
+  collectionName: 'components_shared_service_listings';
   info: {
-    displayName: 'Slider';
-    icon: 'address-book';
-    description: '';
+    displayName: 'serviceListing';
+    icon: 'apps';
   };
   attributes: {
-    files: Schema.Attribute.Media<'images', true>;
+    serviceImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    serviceText: Schema.Attribute.String;
+    serviceDescription: Schema.Attribute.Text;
   };
 }
 
-export interface SharedSeo extends Struct.ComponentSchema {
-  collectionName: 'components_shared_seos';
+export interface SharedRichtext extends Struct.ComponentSchema {
+  collectionName: 'components_shared_richtexts';
   info: {
-    name: 'Seo';
-    icon: 'allergies';
-    displayName: 'Seo';
-    description: '';
+    displayName: 'Richtext';
+    icon: 'bold';
   };
   attributes: {
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
+    Richtext: Schema.Attribute.Blocks;
   };
 }
 
@@ -51,6 +50,18 @@ export interface SharedQuote extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedPortfolioListing extends Struct.ComponentSchema {
+  collectionName: 'components_shared_portfolio_listings';
+  info: {
+    displayName: 'PortfolioListing';
+    icon: 'landscape';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -62,14 +73,60 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedHeroBanner extends Struct.ComponentSchema {
+  collectionName: 'components_shared_hero_banners';
+  info: {
+    displayName: 'HeroBanner';
+    icon: 'landscape';
+  };
+  attributes: {
+    BackgroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    CtaLabel: Schema.Attribute.String;
+    Heading: Schema.Attribute.String;
+    SubHeading: Schema.Attribute.String;
+    CtaLink: Schema.Attribute.String;
+  };
+}
+
+export interface SharedCallout extends Struct.ComponentSchema {
+  collectionName: 'components_shared_callouts';
+  info: {
+    displayName: 'Callout';
+    icon: 'quote';
+  };
+  attributes: {
+    Text: Schema.Attribute.String;
+    LeftAlign: Schema.Attribute.Boolean;
+  };
+}
+
+export interface Shared5050ImageRichtext extends Struct.ComponentSchema {
+  collectionName: 'components_shared_50_50_image_richtexts';
+  info: {
+    displayName: '50-50 Image/Richtext';
+    icon: 'bulletList';
+  };
+  attributes: {
+    Richtext: Schema.Attribute.Blocks;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Reverse: Schema.Attribute.Boolean;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.slider': SharedSlider;
-      'shared.seo': SharedSeo;
+      'shared.service-listing': SharedServiceListing;
+      'shared.richtext': SharedRichtext;
       'shared.rich-text': SharedRichText;
       'shared.quote': SharedQuote;
+      'shared.portfolio-listing': SharedPortfolioListing;
       'shared.media': SharedMedia;
+      'shared.hero-banner': SharedHeroBanner;
+      'shared.callout': SharedCallout;
+      'shared.50-50-image-richtext': Shared5050ImageRichtext;
     }
   }
 }

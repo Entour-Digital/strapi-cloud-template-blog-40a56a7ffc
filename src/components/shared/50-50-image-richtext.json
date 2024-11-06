@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_50_50_image_richtexts",
+  "info": {
+    "displayName": "50-50 Image/Richtext",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "Richtext": {
+      "type": "blocks"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Reverse": {
+      "type": "boolean"
+    }
+  }
+}
