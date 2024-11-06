@@ -616,12 +616,12 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     singularName: 'home-page';
     pluralName: 'home-pages';
     displayName: 'Home page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    introHeader: Schema.Attribute.String;
     clientLogos: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
