@@ -658,12 +658,13 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
     singularName: 'testimonial';
     pluralName: 'testimonials';
     displayName: 'Testimonial';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Text: Schema.Attribute.String;
+    Text: Schema.Attribute.Text;
     Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
