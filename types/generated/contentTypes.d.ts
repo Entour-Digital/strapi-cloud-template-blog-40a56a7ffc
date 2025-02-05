@@ -518,6 +518,7 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
     singularName: 'blog-post';
     pluralName: 'blog-posts';
     displayName: 'Blog post';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -528,7 +529,12 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
     Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Intro: Schema.Attribute.Text;
     Content: Schema.Attribute.DynamicZone<
-      ['shared.callout', 'shared.50-50-image-richtext', 'shared.richtext']
+      [
+        'shared.callout',
+        'shared.50-50-image-richtext',
+        'shared.richtext',
+        'shared.image',
+      ]
     >;
     Published: Schema.Attribute.Boolean;
     createdAt: Schema.Attribute.DateTime;

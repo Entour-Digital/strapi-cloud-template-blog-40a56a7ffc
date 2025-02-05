@@ -73,6 +73,19 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedImage extends Struct.ComponentSchema {
+  collectionName: 'components_shared_images';
+  info: {
+    displayName: 'Image';
+    icon: 'picture';
+    description: '';
+  };
+  attributes: {
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Alt: Schema.Attribute.String;
+  };
+}
+
 export interface SharedHeroBanner extends Struct.ComponentSchema {
   collectionName: 'components_shared_hero_banners';
   info: {
@@ -124,6 +137,7 @@ declare module '@strapi/strapi' {
       'shared.quote': SharedQuote;
       'shared.portfolio-listing': SharedPortfolioListing;
       'shared.media': SharedMedia;
+      'shared.image': SharedImage;
       'shared.hero-banner': SharedHeroBanner;
       'shared.callout': SharedCallout;
       'shared.50-50-image-richtext': Shared5050ImageRichtext;

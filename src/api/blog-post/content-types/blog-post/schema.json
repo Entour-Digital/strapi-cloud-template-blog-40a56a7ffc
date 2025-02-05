@@ -4,7 +4,8 @@
   "info": {
     "singularName": "blog-post",
     "pluralName": "blog-posts",
-    "displayName": "Blog post"
+    "displayName": "Blog post",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,14 +19,15 @@
       "type": "string"
     },
     "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Intro": {
       "type": "text"
@@ -35,7 +37,8 @@
       "components": [
         "shared.callout",
         "shared.50-50-image-richtext",
-        "shared.richtext"
+        "shared.richtext",
+        "shared.image"
       ]
     },
     "Published": {
